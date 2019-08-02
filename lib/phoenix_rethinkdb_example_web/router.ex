@@ -7,6 +7,6 @@ defmodule PhoenixRethinkdbExampleWeb.Router do
 
   scope "/api", PhoenixRethinkdbExampleWeb do
     pipe_through :api
-    resources "/messages", MessageController, only: [:index, :show], param: "fractal_id"
+    resources "/messages", MessageController, except: [:new, :edit], param: "fractal_id"
   end
 end
