@@ -9,7 +9,11 @@ defmodule PhoenixRethinkdbExample.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      PhoenixRethinkdbExampleWeb.Endpoint
+      PhoenixRethinkdbExampleWeb.Endpoint,
+      %{
+        id: RethinkDatabase,
+        start: {RethinkDatabase, :start_link, [[host: 'localhost', port: 28015]]}
+      }
       # Starts a worker by calling: PhoenixRethinkdbExample.Worker.start_link(arg)
       # {PhoenixRethinkdbExample.Worker, arg},
     ]
