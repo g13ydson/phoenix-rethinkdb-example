@@ -1,18 +1,40 @@
-# PhoenixRethinkdbExample
 
+# Phoenix Rethinkdb Example
+
+  This is a very basic example of how to add RethinkDB to Phoenix >= 1.4 .
 To start your Phoenix server:
 
-  * Install dependencies with `mix deps.get`
-  * Start Phoenix endpoint with `mix phx.server`
+* Install dependencies with `mix deps.get`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+* Start Phoenix endpoint with `mix phx.server`
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## API
 
-## Learn more
+CREATE a message
+  [`POST localhost:4000/api/messages`](http://localhost:4000/api/messages)
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+      {
+        "message": {
+            "body": "Hello world",
+            "fractal_id": "1"
+        }
+    }
+
+LIST messages
+  [`GET localhost:4000/api/messages`](http://localhost:4000/api/messages)
+  
+SHOW a message
+  [`GET localhost:4000/api/messages/:fractal_id`](http://localhost:4000/api/messages/:fractal_id)
+  
+UPDATE a message
+  [`PUT localhost:4000/api/messages/:fractal_id`](http://localhost:4000/api/messages/:fractal_id)
+
+      {
+        "message": {
+            "body": "Update Hello world",
+            "fractal_id": "1"
+        }
+    }
+
+DELETE a message
+  [`DELETE localhost:4000/api/messages/:fractal_id`](http://localhost:4000/api/messages/:fractal_id)
